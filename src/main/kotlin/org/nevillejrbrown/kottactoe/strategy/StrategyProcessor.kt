@@ -4,6 +4,8 @@ import org.nevillejrbrown.kottactoe.game.Board
 import org.nevillejrbrown.kottactoe.game.Move
 import org.nevillejrbrown.kottactoe.player.Player
 
+typealias Strategy = (Board, Player) -> Move?
+
 /*
 	The strategy processor holds a number of strategies for playing tic tac toe.
 	A strategy is a function which takes a board & the player whose go it is and then suggests
@@ -11,9 +13,9 @@ import org.nevillejrbrown.kottactoe.player.Player
  */
 class StrategyProcessor {
 
-    val strategies: MutableList<(board: Board, player: Player) -> Move?> = mutableListOf()
+    val strategies: MutableList<Strategy> = mutableListOf()
 
-    fun addStrategy(strategy: (board: Board, player: Player) -> Move?) {
+    fun addStrategy(strategy: Strategy) {
         strategies.add(strategy)
     }
 

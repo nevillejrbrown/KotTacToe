@@ -1,8 +1,12 @@
 package org.nevillejrbrown.kottactoe.game
 
-const val BOARD_SIZE: Int = 3
+//const val BOARD_SIZE: Int = 3
 
 class Board {
+
+    companion object {
+        val BOARD_SIZE: Int = 3
+    }
 
     val contents: Array<Array<Mark>> =
             Array(BOARD_SIZE, { _ -> Array(BOARD_SIZE, { _ -> Mark.BLANK }) })
